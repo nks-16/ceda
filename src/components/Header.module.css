@@ -1,0 +1,108 @@
+.header {
+  width: 100%;
+  padding: var(--spacing-3) 0;
+  background: var(--background);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-1);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-3);
+}
+
+.logoGrid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.logoPlaceholder {
+  flex: 1;
+  min-width: 140px;
+  max-width: 220px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  padding: var(--spacing-2);
+}
+
+.logoBoxWithImage {
+  background: transparent;
+  border: none;
+  padding: var(--spacing-1);
+  height: 100%;
+}
+
+.logoPlaceholder:hover .logoBox {
+  border-color: var(--ieee-blue);
+  box-shadow: var(--shadow-1);
+}
+
+.logoText {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--ieee-blue);
+  text-align: center;
+}
+
+.logoLabel {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  text-align: center;
+  margin-top: 2px;
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  max-height: 70px;
+  object-fit: contain;
+  padding: var(--spacing-1);
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .logoGrid {
+    gap: var(--spacing-2);
+  }
+  
+  .logoPlaceholder {
+    min-width: 100px;
+    max-width: 150px;
+    height: 60px;
+  }
+  
+  .logoImage {
+    max-height: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logoGrid {
+    justify-content: center;
+  }
+  
+  .logoPlaceholder {
+    max-width: 180px;
+  }
+}

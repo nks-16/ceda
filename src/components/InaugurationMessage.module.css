@@ -1,0 +1,127 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: var(--spacing-6) var(--spacing-3);
+  background: linear-gradient(135deg, var(--ieee-blue) 0%, var(--ieee-blue-dark) 50%, var(--ieee-blue) 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  color: white;
+  overflow: hidden;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  text-align: center;
+}
+
+.iconContainer {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto var(--spacing-5);
+  position: relative;
+}
+
+.checkIcon {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.title {
+  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-4);
+  line-height: var(--line-height-tight);
+}
+
+.message {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-2);
+  font-weight: var(--font-weight-normal);
+  opacity: 0.95;
+}
+
+.highlight {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-4xl));
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-6);
+  display: inline-block;
+  padding: var(--spacing-3) var(--spacing-5);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+}
+
+.subtext {
+  margin-top: var(--spacing-6);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  opacity: 0.9;
+}
+
+.subtext p {
+  margin-bottom: var(--spacing-2);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confettiPiece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--ieee-accent);
+  top: -10px;
+  left: var(--x);
+  border-radius: 50%;
+}
+
+.confettiPiece:nth-child(3n) {
+  background: white;
+}
+
+.confettiPiece:nth-child(3n+1) {
+  background: var(--ieee-accent);
+}
+
+@media (max-width: 768px) {
+  .iconContainer {
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--spacing-4);
+  }
+  
+  .section {
+    padding: var(--spacing-4) var(--spacing-2);
+  }
+}

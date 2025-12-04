@@ -68,7 +68,7 @@
 
 .item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--spacing-4);
   padding: var(--spacing-5);
   background: var(--background);
@@ -104,43 +104,12 @@
 }
 
 
-.icon {
-  flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--text-secondary);
-  border-radius: 50%;
-  color: white;
-  box-shadow: var(--shadow-2);
-}
-
-.itemActive .icon {
-  width: 64px;
-  height: 64px;
-  background: var(--text-primary);
-  box-shadow: var(--shadow-3);
-}
-
-.icon svg {
-  width: 28px;
-  height: 28px;
-}
-
-.itemActive .icon svg {
-  width: 32px;
-  height: 32px;
-}
-
 .text {
   font-size: clamp(var(--font-size-base), 2vw, var(--font-size-lg));
   color: var(--text-primary);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-relaxed);
   flex: 1;
-  padding-top: var(--spacing-1);
   transition: all 0.3s ease;
 }
 
@@ -164,31 +133,5 @@
   .itemActive {
     padding: var(--spacing-4);
     transform: translateX(6px) !important;
-  }
-  
-  .icon {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .itemActive .icon {
-    width: 44px;
-    height: 44px;
-  }
-  
-  .icon svg {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .itemActive .icon svg {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .activeMarker {
-    width: 12px;
-    height: 12px;
-    right: var(--spacing-2);
   }
 }

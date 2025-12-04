@@ -27,6 +27,7 @@
   display: flex;
   flex-direction: column;
   margin: auto;
+  margin-top: var(--spacing-6);
   border: 2px solid var(--ieee-blue);
 }
 
@@ -150,6 +151,7 @@
   .modal {
     width: 95%;
     max-height: calc(100vh - var(--spacing-4));
+    margin-top: var(--spacing-4);
   }
   
   .modalHeader {
@@ -177,6 +179,7 @@
 @media (max-height: 600px) {
   .modal {
     max-height: calc(100vh - var(--spacing-2));
+    margin-top: var(--spacing-2);
   }
   
   .modalHeader {

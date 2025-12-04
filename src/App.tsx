@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import './styles/globals.css';
 import './styles/animations.css';
 
-type PageState = 'landing' | 'logo' | 'opportunities' | 'about' | 'inaugurated';
+type PageState = 'landing' | 'logo' | 'about' | 'opportunities' | 'inaugurated';
 
 function App() {
   const [pageState, setPageState] = useState<PageState>('landing');
@@ -17,6 +17,22 @@ function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleStart = () => {
+    // Request fullscreen when user clicks Begin Inauguration
+    const requestFullscreen = async () => {
+      try {
+        if (document.documentElement.requestFullscreen) {
+          await document.documentElement.requestFullscreen();
+        } else if ((document.documentElement as any).webkitRequestFullscreen) {
+          await (document.documentElement as any).webkitRequestFullscreen();
+        } else if ((document.documentElement as any).msRequestFullscreen) {
+          await (document.documentElement as any).msRequestFullscreen();
+        }
+      } catch (error) {
+        console.log('Fullscreen not available or denied');
+      }
+    };
+    
+    requestFullscreen();
     setPageState('logo');
   };
 
@@ -35,7 +51,7 @@ function App() {
     setTimeout(() => {
       setPageState('opportunities');
       setIsTransitioning(false);
-    }, 400); // Reduced from 600ms to 400ms for smoother transition
+    }, 400);
   };
 
   const handleOpportunitiesComplete = () => {

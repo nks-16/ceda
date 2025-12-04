@@ -212,24 +212,6 @@ const Opportunities = ({ shouldAnimate = false, onComplete }: OpportunitiesProps
                   >
                     {opportunity}
                   </motion.span>
-                  {isActive && (
-                    <motion.div
-                      className={styles.activeMarker}
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      exit={{ scale: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeOut' }}
-                    />
-                  )}
-                  {isActive && (
-                    <motion.div
-                      className={styles.activeGlow}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeOut' }}
-                    />
-                  )}
                 </motion.li>
               );
             })}

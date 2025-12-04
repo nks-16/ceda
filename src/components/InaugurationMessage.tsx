@@ -9,6 +9,26 @@ const InaugurationMessage = () => {
     setIsVisible(true);
     // Update page title to show it's inaugurated
     document.title = 'IEEE CEDA Student Chapter - Successfully Inaugurated!';
+    
+    // Request fullscreen
+    const requestFullscreen = async () => {
+      try {
+        if (document.documentElement.requestFullscreen) {
+          await document.documentElement.requestFullscreen();
+        } else if ((document.documentElement as any).webkitRequestFullscreen) {
+          await (document.documentElement as any).webkitRequestFullscreen();
+        } else if ((document.documentElement as any).msRequestFullscreen) {
+          await (document.documentElement as any).msRequestFullscreen();
+        }
+      } catch (error) {
+        console.log('Fullscreen not available or denied');
+      }
+    };
+    
+    // Small delay before requesting fullscreen
+    setTimeout(() => {
+      requestFullscreen();
+    }, 500);
   }, []);
 
   return (
@@ -82,36 +102,6 @@ const InaugurationMessage = () => {
           >
             <p>Welcome to a new era of Electronic Design Automation</p>
             <p>Let's innovate, collaborate, and excel together!</p>
-          </motion.div>
-
-          {/* Decorative elements */}
-          <motion.div
-            className={styles.confetti}
-            initial={{ opacity: 0 }}
-            animate={isVisible ? { opacity: 1 } : {}}
-            transition={{ delay: 1.8 }}
-          >
-            {[...Array(20)].map((_, i) => (
-              <motion.div
-                key={i}
-                className={styles.confettiPiece}
-                style={{
-                  '--delay': `${i * 0.1}s`,
-                  '--x': `${Math.random() * 100}%`,
-                } as React.CSSProperties}
-                initial={{ y: -100, opacity: 0, rotate: 0 }}
-                animate={{
-                  y: window.innerHeight + 100,
-                  opacity: [0, 1, 1, 0],
-                  rotate: 360,
-                }}
-                transition={{
-                  delay: 1.8 + i * 0.1,
-                  duration: 2,
-                  ease: 'easeIn',
-                }}
-              />
-            ))}
           </motion.div>
         </motion.div>
       </div>
